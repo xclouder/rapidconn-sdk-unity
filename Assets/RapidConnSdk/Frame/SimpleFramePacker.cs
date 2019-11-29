@@ -49,10 +49,14 @@ namespace RapidConn
 		public Frame UnPack (byte[] buffer, int size)
 		{
 			//todo optmize gc
+			BinaryReader rdr = new BinaryReader(new MemoryStream(buffer));
 
 			Frame f = new Frame ();
-
-			//todo
+			f.CmdId = rdr.ReadInt32 ();
+			f.Seq = rdr.ReadInt32 ();
+			f.PayloadSize = size - cHeadSize;
+			f.Payload = new byte[f.PayloadSize];
+			System.Buffer.BlockCopy(buffer, cHeadSize, f.Payload, 0, f.PayloadSize);
 
 			return f;
 		}
