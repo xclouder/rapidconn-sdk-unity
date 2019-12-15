@@ -6,8 +6,8 @@ namespace RapidConn
 {
 	public interface IFramePacker {
 
-		void Pack(Frame frame, ref byte[] buffer, out int size);
-		Frame UnPack(byte[] buffer, int size);
+		void Pack(IFrame frame, ref byte[] buffer, out int size);
+		IFrame UnPack(byte[] buffer, int size);
 
 	}
 }

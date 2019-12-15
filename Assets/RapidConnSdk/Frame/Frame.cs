@@ -4,7 +4,12 @@ using UnityEngine;
 
 namespace RapidConn
 {
-	public class Frame {
+	public interface IFrame
+	{
+
+	}
+
+	public class Frame : IFrame {
 
 		public const int cMaxFrameSize = 1024 * 5;
 
